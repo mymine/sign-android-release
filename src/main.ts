@@ -44,21 +44,21 @@ async function run() {
 
         // Each signed release file is stored in a separate variable + output.
         core.exportVariable(`SIGNED_RELEASE_FILE_${index}`, signedReleaseFile);
-        core.setOutput(`signedReleaseFile${index}`, signedReleaseFile);
+        //core.setOutput(`signedReleaseFile${index}`, signedReleaseFile);
         signedReleaseFiles.push(signedReleaseFile);
         ++index;
       }
 
       // All signed release files are stored in a merged variable + output.
       core.exportVariable(`SIGNED_RELEASE_FILES`, signedReleaseFiles.join(":"));
-      core.setOutput('signedReleaseFiles', signedReleaseFiles.join(":"));
+      //core.setOutput('signedReleaseFiles', signedReleaseFiles.join(":"));
       core.exportVariable(`NOF_SIGNED_RELEASE_FILES`, `${signedReleaseFiles.length}`);
-      core.setOutput(`nofSignedReleaseFiles`, `${signedReleaseFiles.length}`);
+      //core.setOutput(`nofSignedReleaseFiles`, `${signedReleaseFiles.length}`);
 
       // When there is one and only one signed release file, stoire it in a specific variable + output.
       if (signedReleaseFiles.length == 1) {
         core.exportVariable(`SIGNED_RELEASE_FILE`, signedReleaseFiles[0]);
-        core.setOutput('signedReleaseFile', signedReleaseFiles[0]);
+        //core.setOutput('signedReleaseFile', signedReleaseFiles[0]);
       }
       console.log('Releases signed!');
     } else {
